@@ -1,0 +1,71 @@
+--1    
+-- USE SCHEMA RAW;
+--DESC TABLE USERS_JSON;
+-------------------------------------------------------------------------
+--2
+-- USE SCHEMA RAW;
+--SELECT COUNT(*) FROM USERS_JSON;
+-------------------------------------------------------------------------
+--3
+-- USE SCHEMA RAW;
+--SELECT
+  --PARSE_JSON(DATA:"Output"::STRING):id::NUMBER AS id,
+  --PARSE_JSON(DATA:"Output"::STRING):name::STRING AS name
+--FROM IICS_DB.RAW.USERS_JSON LIMIT 5;
+-------------------------------------------------------------------------
+--4  
+-- USE SCHEMA RAW;
+--SELECT SYSTEM$PIPE_STATUS('USERS_JSON_PIPE');
+-------------------------------------------------------------------------
+--5
+-- USE SCHEMA RAW;
+--SELECT SYSTEM$STREAM_HAS_DATA('RAW.USERS_JSON_STM');
+-------------------------------------------------------------------------
+--6
+-- USE SCHEMA RAW;
+--SHOW STREAMS IN SCHEMA RAW;
+-------------------------------------------------------------------------
+--7 show objects in schemas raw/curated 
+--USE SCHEMA RAW;
+--SHOW OBJECTS IN SCHEMA IICS_DB.RAW;
+-------------------------------------------------------------------------
+--8
+-- USE SCHEMA RAW;
+--DESC STREAM RAW.USERS_JSON_STM;
+-------------------------------------------------------------------------
+--9
+-- USE SCHEMA RAW;
+--SELECT SYSTEM$STREAM_HAS_DATA('RAW.USERS_JSON_STM');
+-------------------------------------------------------------------------
+--10
+-- USE SCHEMA CURATED;
+--DELETE FROM CURATED.USERS WHERE FILENAME = 'user_status_new.json';--
+-------------------------------------------------------------------------
+--11
+-- USE SCHEMA CURATED;
+--SELECT ID, COUNT(*) AS cnt FROM CURATED.USERS
+--GROUP BY ID 
+--HAVING COUNT(*) > 1
+--ORDER BY cnt DESC;
+-------------------------------------------------------------------------
+--11
+--DESC NOTIFICATION INTEGRATION AZ_IICS_NOTIF_INT;
+-------------------------------------------------------------------------
+--12
+--SHOW OBJECTS IN SCHEMA IICS_DB.PUBLIC;
+-------------------------------------------------------------------------
+--13
+--SHOW STAGES IN SCHEMA IICS_DB.RAW;
+-------------------------------------------------------------------------
+--14
+--SHOW PIPES IN SCHEMA IICS_DB.RAW;
+-------------------------------------------------------------------------
+--15
+--SHOW FILE FORMATS IN SCHEMA IICS_DB.RAW;
+-------------------------------------------------------------------------
+--16
+--SHOW NOTIFICATION INTEGRATIONS;
+-------------------------------------------------------------------------
+--17
+--SHOW TASKS IN ACCOUNT;
+-------------------------------------------------------------------------

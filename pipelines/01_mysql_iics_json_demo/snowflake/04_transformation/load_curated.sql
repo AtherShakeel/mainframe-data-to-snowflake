@@ -1,0 +1,42 @@
+USE ROLE ACCOUNTADMIN;  
+USE DATABASE IICS_DB;
+USE WAREHOUSE WH_IISC;                     
+USE SCHEMA CURATED;
+
+INSERT INTO IICS_DB.CURATED.USERS (
+  ID, NAME, USERNAME, EMAIL,
+  ADDRESS_STREET, ADDRESS_SUITE, ADDRESS_CITY, ADDRESS_ZIPCODE, GEO_LAT, GEO_LNG,
+  PHONE, WEBSITE,
+  COMPANY_NAME, COMPANY_CATCHPHRASE, COMPANY_BS,
+  LOAD_TS,
+  FILENAME
+)
+SELECT
+  P:id::NUMBER,
+  P:name::STRING,
+  P:username::STRING,
+  P:email::STRING,
+
+  P:address:street::STRING,
+  P:address:suite::STRING,
+  P:address:city::STRING,
+  P:address:zipcode::STRING,
+  P:address:geo:lat::STRING,
+  P:address:geo:lng::STRING,
+
+  P:phone::STRING,
+  P:website::STRING,
+
+  P:company:name::STRING,
+  P:company:catchPhrase::STRING,
+  P:company:bs::STRING,
+
+  LOAD_TS,
+  FILENAME
+FROM (
+    SELECT 
+        LOAD_TS,
+        FILENAME,
+        PARSE_JSON(DATA:"Output"::STRING) AS P
+    FROM IICS_DB.RAW.USERS_JSON
+);

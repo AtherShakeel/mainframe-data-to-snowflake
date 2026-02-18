@@ -1,0 +1,63 @@
+# ==============================
+# Snowflake / Data Engineering
+# ==============================
+
+# Secrets & Credentials
+*.env
+*.key
+*.pem
+*.p12
+*.crt
+*credentials*
+*secret*
+*token*
+*password*
+
+# Parameter files (IICS / Snowflake)
+*.param
+*.parameters
+*.conf
+*.config
+
+# Azure SAS / connection files
+azure_credentials.*
+connection.json
+
+# Local environment files
+.env
+.env.*
+
+# VS Code
+.vscode/
+.history/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# SnowSQL / local configs
+snowsql.config
+
+# Exported Informatica runtime files
+*.xml
+*.zip
+
+# Sample data protection (keep only small demo files)
+sample_data/full_data/*
+!sample_data/files/demo_small.*
+
+# Terraform (future-proof)
+*.tfstate
+*.tfstate.*
+
+# Python (if added later)
+__pycache__/
+*.pyc

@@ -1,0 +1,12 @@
+USE ROLE ACCOUNTADMIN;  
+USE DATABASE IICS_DB;
+USE WAREHOUSE WH_IISC;                     
+USE SCHEMA RAW;
+
+CREATE OR REPLACE STAGE AZ_IICS_STAGE
+URL='azure://atheriicsstorage.blob.core.windows.net/iics-data'
+CREDENTIALS = (
+	AZURE_SAS_TOKEN = '${AZURE_SAS_TOKEN}'
+);
+
+LIST @AZ_IICS_STAGE PATTERN='.*';
