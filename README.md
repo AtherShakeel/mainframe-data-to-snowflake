@@ -1,3 +1,11 @@
+![Snowflake](https://img.shields.io/badge/Snowflake-Cloud%20Data%20Platform-blue?logo=snowflake)
+![Azure](https://img.shields.io/badge/Azure-Cloud-0078D4?logo=microsoft-azure)
+![Informatica](https://img.shields.io/badge/Informatica-IICS-orange)
+![Data%20Engineering](https://img.shields.io/badge/Domain-Data%20Engineering-success)
+![Mainframe](https://img.shields.io/badge/Focus-Mainframe%20Modernization-red)
+![Architecture](https://img.shields.io/badge/Pattern-RAW%20to%20CURATED-brightgreen)
+![Deployment](https://img.shields.io/badge/Version%20Control-Git-black)
+
 # Mainframe Modernization Data Pipeline (IICS + Azure + Snowflake)
 
 This repository contains end-to-end data pipeline implementations that demonstrate enterprise patterns for moving data from source systems to Snowflake.
