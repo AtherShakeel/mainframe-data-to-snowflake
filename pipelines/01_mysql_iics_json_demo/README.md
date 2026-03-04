@@ -8,6 +8,10 @@
 ![Tasks](https://img.shields.io/badge/Snowflake-Tasks-yellow)
 ![Data](https://img.shields.io/badge/Data-JSON-green)
 
+<p align="center">
+  <img src="../../architecture/pipeline_01_arch.png" width="800" alt="Pipeline 01 Architecture">
+</p>
+
 # Pipeline 01 — MySQL → IICS → Azure Blob → Snowflake
 
 ## Goal

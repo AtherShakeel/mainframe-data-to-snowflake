@@ -1,4 +1,4 @@
---1    
+--1
 -- USE SCHEMA RAW;
 --DESC TABLE USERS_JSON;
 -------------------------------------------------------------------------
@@ -13,7 +13,7 @@
   --PARSE_JSON(DATA:"Output"::STRING):name::STRING AS name
 --FROM IICS_DB.RAW.USERS_JSON LIMIT 5;
 -------------------------------------------------------------------------
---4  
+--4
 -- USE SCHEMA RAW;
 --SELECT SYSTEM$PIPE_STATUS('USERS_JSON_PIPE');
 -------------------------------------------------------------------------

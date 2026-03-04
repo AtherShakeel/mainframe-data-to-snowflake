@@ -1,6 +1,8 @@
 -- =====================================================
 -- Pipeline Inventory & Health Check
 -- Purpose: Operational visibility for Snowflake pipelines
+-- change WH and DB qualifiers and table names as per the
+-- requirement
 -- =====================================================
 
 USE ROLE ACCOUNTADMIN;
