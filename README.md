@@ -6,11 +6,11 @@
 ![Architecture](https://img.shields.io/badge/Pattern-RAW%20to%20CURATED-brightgreen)
 ![Deployment](https://img.shields.io/badge/Version%20Control-Git-black)
 
+# Enterprise Data Pipelines (Mainframe Modernization | REST API | Cloud ETL)
+
 <p align="center">
   <img src="./architecture/repo_overview.png" width="900" alt="Project Architecture Overview">
 </p>
-
-# Enterprise Data Pipelines (Mainframe Modernization | REST API | Cloud ETL)
 
 This repository showcases **end-to-end cloud data pipelines built for modernizing legacy and relational data sources into Snowflake** using **Informatica Intelligent Cloud Services (IICS)** and **Azure Blob Storage**.
 
