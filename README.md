@@ -6,12 +6,11 @@
 ![Architecture](https://img.shields.io/badge/Pattern-RAW%20to%20CURATED-brightgreen)
 ![Deployment](https://img.shields.io/badge/Version%20Control-Git-black)
 
-
 <p align="center">
   <img src="./architecture/repo_overview.png" width="900" alt="Project Architecture Overview">
 </p>
 
-# Mainframe Modernization Data Pipelines (IICS + Azure + Snowflake)
+# Enterprise Data Pipelines (Mainframe Modernization | REST API | Cloud ETL)
 
 This repository showcases **end-to-end cloud data pipelines built for modernizing legacy and relational data sources into Snowflake** using **Informatica Intelligent Cloud Services (IICS)** and **Azure Blob Storage**.
 
@@ -20,6 +19,12 @@ The pipelines demonstrate enterprise ingestion patterns including **event-driven
 The primary focus of this project is **mainframe data modernization**, where complex **VSAM copybook datasets containing REDEFINES and OCCURS structures are parsed using the IICS IMS model and transformed into analytics-ready Snowflake tables**.
 
 Each pipeline in this repository represents a real-world enterprise integration scenario and includes **IICS mappings, Snowflake SQL assets, Azure storage integration, and monitoring scripts**.
+
+Hybrid Flow: Dual-path architecture handling both **real-time REST API synchronization** and high-volume **cloud data warehousing.**
+
+API Orchestration: **Complex joins** (Users, Address, Geo, Company) to fulfill **nested JSON API contracts with a Synchronous Feedback Loop** to update source MySQL status.
+
+Cloud Automation: Automated **Hierarchy Building** for **Azure Blob landing** and **Snowpipe-driven ingestion into Snowflake VARIANT tables.**
 
 # Architecture Overview
 
@@ -36,31 +41,27 @@ _Source System_
 
 # Pipelines
 
-### 01 - MySQL → IICS → Azure Blob → Snowflake (Snowpipe + Streams/Tasks)
+### 01 - Multi-Pattern RDBMS Integration (API Sync & Cloud ELT)
 
-### Path: pipelines/01_mysql_iics_json_demo/
+### Path: pipelines/01_rdbms_rest_api_cloud_etl/
 
 _Highlights:_
 
-IICS connects to MySQL database to extract data
+Hybrid Flow: Implements a dual-path architecture for real-time REST API synchronization and automated cloud data warehousing.
 
-IICS mapping uses transformations like Hierarchy Builder to create JSON
+API Orchestration: Performs complex joins across 4+ tables to fulfill nested JSON contracts for downstream consumer APIs.
 
-JSON files are written to Azure Blob Storage
+Transactional Feedback: Uses a synchronous loop to update the MySQL outbox table based on API response codes (201/400/500).
 
-Snowflake external stage + Snowpipe auto-ingest loads files into RAW tables
+Automated Ingestion: Leverages Hierarchy Builder for JSON serialization and Snowpipe for event-driven loading into Snowflake.
 
-RAW layer uses VARIANT columns for semi-structured ingestion
+CDC & Curation: Utilizes Snowflake Streams and Tasks for incremental MERGE-based upserts into curated relational structures.
 
-Streams + Tasks enable incremental transformations
-
-MERGE-based upsert loads curated relational tables
-
-Deduplication strategy based on latest LOAD_TS
+---
 
 ### 02 - VSAM → IICS → Azure Blob → Snowflake (Mainframe Modernization)
 
-# Path: pipelines/02_vsam_iics_azure_snowflake/
+### Path: pipelines/02_mainframe_modernization_vsam_to_snowflake/
 
 This pipeline demonstrates mainframe modernization patterns for migrating complex VSAM copybook data structures into Snowflake.
 
@@ -84,17 +85,38 @@ End-to-end pipeline monitoring using OPS.ETL_AUDIT_RUN audit table
 
 IICS polls Snowflake audit table to determine pipeline success/failure
 
+---
+
+Integration Patterns Comparison
+| Feature | Pipeline 01 (RDBMS/API) | Pipeline 02 (Mainframe/Audit) |
+| :--- | :--- | :--- |
+| **Source** | MySQL (Relational) | VSAM (Legacy/Copybook) |
+| **Pattern** | API-Led Sync & Cloud ELT | Event-Driven Modernization |
+| **Key Tech** | Web Service, Hierarchy Builder | IMS Model, Persistent Variables |
+| **Storage** | MySQL / Azure Blob / Snowflake | Azure Blob / Snowflake |
+
+---
+
 ### Repository Structure
 
+<pre>
 architecture/
-high_level_arch.png
+  ├── pipeline_01_arch_flow_A.png
+  ├── pipeline_01_arch_flow_B.png
+  ├── pipeline_01_mapping_flow_A.JPG
+  ├── pipeline_01_mapping_flow_B.JPG
+  ├── pipeline_02_arch.png
+  ├── pipeline_02_mapping.JPG
+  ├── pipeline_02_taskflow.JPG
+  └── repo.overview.png
 
 pipelines/
-01_mysql_iics_json_demo/
-02_vsam_iics_azure_snowflake/
+  ├── 01_rdbms_rest_api_cloud_etl/
+  └── 02_mainframe_modernization_vsam_to_snowflake/
 
 shared/
-monitoring/
+  └── monitoring/
+</pre>
 
 # Each pipeline contains:
 
@@ -142,3 +164,7 @@ Automated transformation workflows
 Scalable Snowflake warehouse architecture
 
 End-to-end pipeline monitoring and auditability
+
+## How to review IICS code??
+
+To review the logic, import the ZIP files from the /export folder into your IICS environment.
