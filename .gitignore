@@ -46,10 +46,6 @@ Thumbs.db
 # SnowSQL / local configs
 snowsql.config
 
-# Exported Informatica runtime files
-*.xml
-*.zip
-
 # Sample data protection (keep only small demo files)
 sample_data/full_data/*
 !sample_data/files/demo_small.*
