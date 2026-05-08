@@ -6,6 +6,14 @@
 ![Architecture](https://img.shields.io/badge/Pattern-RAW%20to%20CURATED-brightgreen)
 ![Deployment](https://img.shields.io/badge/Version%20Control-Git-black)
 
+Educational / Portfolio Project Disclaimer
+
+This repository is an independently developed educational and portfolio project created in personal lab environments for learning and demonstration purposes.
+
+It does not contain proprietary employer/client code, confidential business logic, production datasets, or internal enterprise assets. All workflows, datasets, pipelines, naming conventions, and configurations used in this repository are synthetic examples designed to simulate real-world z/OS modernization and DevOps scenarios.
+
+The objective of this project is to demonstrate hands-on understanding of data integration from mainframes and databases like MYSQL using IICS, Snowflake, Azure and modernization practices within a controlled personal environment.
+
 # Enterprise Data Pipelines (Mainframe Modernization | REST API | Cloud ETL)
 
 <p align="center">
