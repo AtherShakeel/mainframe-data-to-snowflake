@@ -6,7 +6,7 @@
 ![Architecture](https://img.shields.io/badge/Pattern-RAW%20to%20CURATED-brightgreen)
 ![Deployment](https://img.shields.io/badge/Version%20Control-Git-black)
 
-Educational / Portfolio Project Disclaimer
+## Educational / Portfolio Project Disclaimer
 
 This repository is an independently developed educational and portfolio project created in personal lab environments for learning and demonstration purposes.
 
